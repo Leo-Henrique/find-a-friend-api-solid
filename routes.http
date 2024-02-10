@@ -1,0 +1,108 @@
+@baseUrl = http://localhost:{{$dotenv APP_PORT}}
+
+# @name register
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Seu pet favorito",
+  "email": "seupetfavorito@example.com",
+  "password": "123456",
+  "tel": "11999999999",
+  "cep": "12345678",
+  "state": "Estado",
+  "city": "Cidade",
+  "neighborhood": "Bairro",
+  "street": "Rua",
+  "addressNumber": 123
+}
+
+###
+
+# @name authenticate
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+  "email": "seupetfavorito@example.com",
+  "password": "123456"
+}
+
+###
+
+@accessToken = Bearer {{authenticate.response.body.$.accessToken}}
+
+# @name authenticatedUser
+GET {{baseUrl}}/me
+Authorization: {{accessToken}}
+
+###
+
+# @name createPet
+POST {{baseUrl}}/pets
+Content-Type: multipart/form-data; boundary=splitter
+Authorization: {{accessToken}}
+
+--splitter
+Content-Disposition: form-data; name="name"
+
+Paçoca
+--splitter
+Content-Disposition: form-data; name="description"
+
+Paçoca é um adorável cão Shih-tzu que adora uma companhia.
+--splitter
+Content-Disposition: form-data; name="age"
+
+2
+--splitter
+Content-Disposition: form-data; name="type"
+
+dog
+--splitter
+Content-Disposition: form-data; name="size"
+
+medium
+--splitter
+Content-Disposition: form-data; name="independency"
+
+very
+--splitter
+Content-Disposition: form-data; name="energyLevel"
+
+5
+--splitter
+Content-Disposition: form-data; name="photos"; filename="pacoca.jpg"
+Content-Type: image/jpeg
+
+< ./tmp/uploads/pacoca.jpg
+--splitter--
+
+###
+
+# @name adoptPet
+PATCH {{baseUrl}}/pets/d2f92f29-705d-40b0-9898-d2a15d50acb7/adoptions
+Authorization: {{accessToken}}
+
+###
+
+# @name listPetsAvailableForAdoption
+GET {{baseUrl}}/pets/available
+  ?city=Cidade
+  &items=20
+  &page=1
+  &age=adult
+  &energyLevel=5
+  &size=medium
+  &independency=very
+
+###
+
+# @name listRecentAdoptedPets
+GET {{baseUrl}}/pets/adoptions
+  ?limit=8
+
+###
+
+# @name getPetProfile
+GET {{baseUrl}}/pets/d2f92f29-705d-40b0-9898-d2a15d50acb7
