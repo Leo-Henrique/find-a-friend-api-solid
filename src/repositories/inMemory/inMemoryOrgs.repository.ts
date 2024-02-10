@@ -32,4 +32,12 @@ export class InMemoryOrgsRepository implements OrgsRepository {
 
     return org;
   }
+
+  async findManyByCity(city: string) {
+    const orgs = this.data.filter(pet => {
+      return pet.city.toLowerCase() === city.toLowerCase();
+    });
+
+    return orgs;
+  }
 }

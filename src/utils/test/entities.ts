@@ -14,3 +14,19 @@ export const orgSpec = {
 };
 
 export const orgPasswordHashSpec = hashSync(orgSpec.password, 6);
+
+export const petSpec = {
+  name: "Paçoca",
+  description: "Paçoca é um adorável cão Shih-tzu que adora uma companhia.",
+  age: 2,
+  type: "dog",
+  size: "medium",
+  independency: "very",
+  energyLevel: 5,
+} as const;
+
+export const petUseCaseSpec = {
+  ...petSpec,
+  requirements: <[]>[],
+  photos: <[]>[],
+} as const;
