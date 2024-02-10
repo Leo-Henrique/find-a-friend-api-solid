@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model Org {
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  passwordHash  String
+  tel           String
+  cep           String
+  state         String
+  city          String
+  neighborhood  String
+  street        String
+  addressNumber Int
+  createdAt     DateTime @default(now())
+
+  Pet Pet[]
+}
+
+enum PetType {
+  cat
+  dog
+}
+
+enum PetSize {
+  small
+  medium
+  large
+}
+
+enum PetIndependency {
+  little
+  normal
+  very
+}
+
+model Pet {
+  id           String          @id @default(uuid())
+  name         String
+  description  String
+  age          Int
+  type         PetType
+  size         PetSize
+  independency PetIndependency
+  energyLevel  Int
+  adopted      DateTime?
+  createdAt    DateTime        @default(now())
+
+  orgId          String
+  org            Org              @relation(fields: [orgId], references: [id])
+  PetRequirement PetRequirement[]
+  PetPhoto       PetPhoto[]
+}
+
+model PetRequirement {
+  id   String @id @default(uuid())
+  text String
+
+  petId String
+  pet   Pet    @relation(fields: [petId], references: [id], onDelete: Cascade)
+}
+
+model PetPhoto {
+  id     String @id @default(uuid())
+  source String
+  alt    String
+
+  petId String
+  pet   Pet    @relation(fields: [petId], references: [id], onDelete: Cascade)
+}
