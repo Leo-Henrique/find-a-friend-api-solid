@@ -3,7 +3,7 @@ import { createAndAuthenticateOrg } from "@/http/test/createAndAuthenticateOrg";
 import { prisma } from "@/lib/prisma";
 import request from "supertest";
 import { describe, expect, it } from "vitest";
-import { petSpec } from "@/utils/test/entities"; 
+import { petSpec } from "@/utils/test/entities";
 
 describe("Adopt pet (E2E)", () => {
   it("should be able to adopt pet", async () => {

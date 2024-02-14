@@ -3,7 +3,7 @@
 API REST com princípios do SOLID e alguns patterns com o objetivo de simular uma aplicação escalável e de fácil manutenção.
 
 - [Requisitos de software](https://leo-henrique.notion.site/leo-henrique/Find-A-Friend-requisitos-de-software-1ba9ad1187e94d0f8482d22c820a68dd)
-- [UI Design da comunidade](https://www.figma.com/file/1kpv8DUn53wnTCS1S5hKJV/Find-A-Friend-(APP)-(Community)?type=design&node-id=1-2&mode=design&t=OivsuwxDBKB2z7Vl-0)
+- [UI Design da comunidade](<https://www.figma.com/file/1kpv8DUn53wnTCS1S5hKJV/Find-A-Friend-(APP)-(Community)?type=design&node-id=1-2&mode=design&t=OivsuwxDBKB2z7Vl-0>)
 
 ## Principais tecnologias
 
