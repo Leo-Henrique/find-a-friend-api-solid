@@ -1,0 +1,45 @@
+name: Run E2E Tests
+
+on: [push]
+
+env:
+  NODE_ENV: test
+  APP_NAME: e2e-app
+  APP_PORT: 3333
+  JWT_SECRET: e2e-jwt
+  POSTGRES_USER: e2e-db-user
+  POSTGRES_PASS: e2e-db-pass
+  POSTGRES_HOST: localhost
+  POSTGRES_PORT: 5432
+  POSTGRES_NAME: e2e-db-name
+  POSTGRES_URL: "postgresql://e2e-db-user:e2e-db-pass@localhost:5432/e2e-db-name?schema=public"
+
+jobs:
+  run-e2e-tests:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: bitnami/postgresql
+        env:
+          POSTGRESQL_USERNAME: ${{ env.POSTGRES_USER }}
+          POSTGRESQL_PASSWORD: ${{ env.POSTGRES_PASS }}
+          POSTGRESQL_DATABASE: ${{ env.POSTGRES_NAME }}
+        ports:
+          - "5432:5432"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.5.1
+          cache: "pnpm"
+
+      - run: pnpm install
+      - run: pnpm test:e2e
