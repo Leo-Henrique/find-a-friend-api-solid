@@ -5,8 +5,8 @@ import { z } from "zod";
 expand(config());
 
 const schema = z.object({
-  APP_NAME: z.string(),
   NODE_ENV: z.enum(["test", "development", "production"]),
+  APP_NAME: z.string(),
   APP_PORT: z.coerce.number(),
   POSTGRES_USER: z.string(),
   POSTGRES_PASS: z.string(),
