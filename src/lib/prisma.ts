@@ -13,6 +13,6 @@ export const testDatabaseURL = () => {
 };
 
 export const prisma = new PrismaClient({
-  log: env.NODE_ENV === "development" ? ["query"] : [],
+  log: env.NODE_ENV === "development" ? ["error"] : [],
   datasourceUrl: env.NODE_ENV === "test" ? testDatabaseURL() : env.POSTGRES_URL,
 });
