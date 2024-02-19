@@ -1,3 +1,4 @@
+import { encodeJWT } from "@/http/plugins/requireJWT";
 import { authenticateUseCaseFactory } from "@/useCases/factories/authenticateUseCase.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
@@ -16,7 +17,7 @@ export async function authenticateController(
   const authenticateUseCase = authenticateUseCaseFactory();
   const { org } = await authenticateUseCase.execute(body);
 
-  const accessToken = await res.jwtSign({ id: org.id }, { expiresIn: "5m" });
+  const { accessToken } = await encodeJWT(org.id, res);
 
-  res.status(200).send({ org, accessToken });
+  res.send({ org, accessToken });
 }

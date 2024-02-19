@@ -15,6 +15,7 @@
     "test:coverage": "vitest run --coverage.enabled=true --coverage.all=false"
   },
   "dependencies": {
+    "@fastify/cookie": "9.3.1",
     "@fastify/jwt": "8.0.0",
     "@prisma/client": "5.7.1",
     "bcryptjs": "2.4.3",
