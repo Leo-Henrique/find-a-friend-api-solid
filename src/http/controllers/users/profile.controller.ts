@@ -5,7 +5,7 @@ export async function profileController(
   req: FastifyRequest,
   res: FastifyReply,
 ) {
-  const orgId = req.user.sub;
+  const orgId = req.user.id;
 
   const getOrgProfileUseCase = getOrgProfileUseCaseFactory();
   const { org } = await getOrgProfileUseCase.execute({ orgId });

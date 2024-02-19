@@ -10,7 +10,7 @@ export async function adoptPetController(
   req: FastifyRequest,
   res: FastifyReply,
 ) {
-  const orgId = req.user.sub;
+  const orgId = req.user.id;
   const { petId } = adoptPetParamsSchema.parse(req.params);
 
   const adoptPetUseCase = adoptPetUseCaseFactory();

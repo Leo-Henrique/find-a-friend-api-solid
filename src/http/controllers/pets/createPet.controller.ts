@@ -17,7 +17,7 @@ export async function createPetController(
   req: FastifyRequest,
   res: FastifyReply,
 ) {
-  const orgId = req.user.sub;
+  const orgId = req.user.id;
   const body = createPetBodySchema.parse(req.body);
 
   const createPetUseCase = createPetUseCaseFactory();

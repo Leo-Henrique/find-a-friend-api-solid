@@ -16,7 +16,7 @@ export async function authenticateController(
   const authenticateUseCase = authenticateUseCaseFactory();
   const { org } = await authenticateUseCase.execute(body);
 
-  const accessToken = await res.jwtSign({}, { sign: { sub: org.id } });
+  const accessToken = await res.jwtSign({ id: org.id }, { expiresIn: "5m" });
 
   res.status(200).send({ org, accessToken });
 }
