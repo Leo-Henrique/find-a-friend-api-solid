@@ -30,7 +30,15 @@ Content-Type: application/json
 
 ###
 
-@accessToken = Bearer {{authenticate.response.body.$.accessToken}}
+@refreshTokenCookie = {{authenticate.response.headers.set-cookie}}
+
+# @name refreshToken
+PATCH {{baseUrl}}/sessions/token
+Cookie: {{refreshTokenCookie}}
+
+###
+
+@accessToken = Bearer {{refreshToken.response.body.$.accessToken}}
 
 # @name authenticatedUser
 GET {{baseUrl}}/me
