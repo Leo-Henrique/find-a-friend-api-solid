@@ -1,5 +1,5 @@
 import { JWTPayload } from "@/@types/fastify-jwt";
-import { encodeJWT } from "@/http/plugins/requireJWT";
+import { encodeJWT } from "@/http/plugins/require-JWT";
 import { FastifyReply, FastifyRequest } from "fastify";
 
 export async function tokenController(req: FastifyRequest, res: FastifyReply) {

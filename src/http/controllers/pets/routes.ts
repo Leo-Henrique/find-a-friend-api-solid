@@ -1,11 +1,11 @@
-import { requireJWT } from "@/http/plugins/requireJWT";
-import { requireUpload } from "@/http/plugins/requireUpload";
+import { requireJWT } from "@/http/plugins/require-JWT";
+import { requireUpload } from "@/http/plugins/require-upload";
 import { FastifyInstance } from "fastify";
-import { adoptPetController } from "./adoptPet.controller";
-import { createPetController } from "./createPet.controller";
-import { getPetProfileController } from "./getPetProfile.controller";
-import { listPetsAvailableForAdoptionController } from "./listPetsAvailableForAdoption.controller";
-import { listRecentAdoptedPetsController } from "./listRecentAdoptedPets.controller";
+import { adoptPetController } from "./adopt-pet.controller";
+import { createPetController } from "./create-pet.controller";
+import { getPetProfileController } from "./get-pet-profile.controller";
+import { listPetsAvailableForAdoptionController } from "./list-pets-available-for-adoption.controller";
+import { listRecentAdoptedPetsController } from "./list-recent-adopted-pets.controller";
 
 export async function petRoutes(app: FastifyInstance) {
   const [requireMultipart, ...petPhotoUpload] = requireUpload({

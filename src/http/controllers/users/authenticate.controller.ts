@@ -1,5 +1,5 @@
-import { encodeJWT } from "@/http/plugins/requireJWT";
-import { authenticateUseCaseFactory } from "@/useCases/factories/authenticateUseCase.factory";
+import { encodeJWT } from "@/http/plugins/require-JWT";
+import { authenticateUseCaseFactory } from "@/use-cases/factories/authenticate-use-case.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 

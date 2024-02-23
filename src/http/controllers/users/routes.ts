@@ -1,4 +1,4 @@
-import { requireJWT } from "@/http/plugins/requireJWT";
+import { requireJWT } from "@/http/plugins/require-JWT";
 import { FastifyInstance } from "fastify";
 import { authenticateController } from "./authenticate.controller";
 import { tokenController } from "./token.controller";

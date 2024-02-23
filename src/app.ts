@@ -4,7 +4,7 @@ import fastify from "fastify";
 import multer from "fastify-multer";
 import { env } from "./config";
 import { appRoutes } from "./http/controllers/routes";
-import { errorHandler } from "./http/plugins/errorHandler";
+import { errorHandler } from "./http/plugins/error-handler";
 
 export const app = fastify();
 

@@ -1,4 +1,4 @@
-import { CreateOrg, Org } from "@/entities/org";
+import { CreateOrg, Org } from "@/entities/org.entity";
 
 export interface OrgsRepository {
   create(data: CreateOrg): Promise<Org>;

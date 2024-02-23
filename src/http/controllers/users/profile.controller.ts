@@ -1,4 +1,4 @@
-import { getOrgProfileUseCaseFactory } from "@/useCases/factories/getOrgProfileUseCase.factory";
+import { getOrgProfileUseCaseFactory } from "@/use-cases/factories/get-org-profile-use-case.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 
 export async function profileController(

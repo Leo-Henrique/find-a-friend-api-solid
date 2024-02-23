@@ -1,4 +1,4 @@
-import { CreatePet, Pet, UpdatePet } from "@/entities/pet";
+import { CreatePet, Pet, UpdatePet } from "@/entities/pet.entity";
 
 export interface FindManyAvailableForAdoptionParams {
   orgIdsInSameCity: string[];
