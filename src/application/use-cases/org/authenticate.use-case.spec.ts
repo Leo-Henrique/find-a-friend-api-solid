@@ -1,8 +1,8 @@
+import { InvalidCredentialsError } from "@/application/errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { randomUUID } from "crypto";
 import { orgPasswordHashSpec, orgSpec } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
-import { InvalidCredentialsError } from "../../errors/invalid-credentials.error";
 import { AuthenticateUseCase } from "./authenticate.use-case";
 
 let orgsRepository: InMemoryOrgsRepository;

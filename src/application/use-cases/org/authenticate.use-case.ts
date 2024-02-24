@@ -1,8 +1,8 @@
 import { Org } from "@/application/entities/org.entity";
+import { InvalidCredentialsError } from "@/application/errors";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { serializeUser } from "@/utils/serialize-user";
 import { compare } from "bcryptjs";
-import { InvalidCredentialsError } from "../../errors/invalid-credentials.error";
 
 interface AuthenticateUseCaseRequest {
   email: string;

@@ -1,7 +1,6 @@
 import { Pet } from "@/application/entities/pet.entity";
+import { ResourceNotFoundError, UnauthorizedError } from "@/application/errors";
 import { PetsRepository } from "@/repositories/pets.repository";
-import { ResourceNotFoundError } from "../../errors/resource-not-found.error";
-import { UnauthorizedError } from "../../errors/unauthorized.error";
 
 interface AdoptPetUseCaseRequest {
   orgId: string;
@@ -21,7 +20,7 @@ export class AdoptPetUseCase {
   }: AdoptPetUseCaseRequest): Promise<AdoptPetUseCaseResponse> {
     const pet = await this.petsRepository.findById(petId);
 
-    if (!pet) throw new ResourceNotFoundError("pet");
+    if (!pet) throw new ResourceNotFoundError("Pet");
 
     if (orgId !== pet.orgId) throw new UnauthorizedError();
 

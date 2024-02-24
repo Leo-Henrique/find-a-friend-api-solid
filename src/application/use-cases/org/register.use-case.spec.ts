@@ -1,8 +1,8 @@
+import { ResourceAlreadyExistsError } from "@/application/errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { compare } from "bcryptjs";
 import { orgSpec } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
-import { OrgAlreadyExistsError } from "../../errors/org-already-exists.error";
 import { RegisterUseCase } from "./register.use-case";
 
 let orgsRepository: InMemoryOrgsRepository;
@@ -24,7 +24,7 @@ describe("Register Org Use Case", () => {
     await sut.execute(orgSpec);
 
     await expect(sut.execute(orgSpec)).rejects.toBeInstanceOf(
-      OrgAlreadyExistsError,
+      ResourceAlreadyExistsError,
     );
   });
 

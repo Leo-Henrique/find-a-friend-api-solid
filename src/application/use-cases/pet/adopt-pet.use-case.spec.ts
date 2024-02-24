@@ -1,9 +1,8 @@
+import { ResourceNotFoundError, UnauthorizedError } from "@/application/errors";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
 import { randomUUID } from "crypto";
 import { petUseCaseSpec } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
-import { ResourceNotFoundError } from "../../errors/resource-not-found.error";
-import { UnauthorizedError } from "../../errors/unauthorized.error";
 import { AdoptPetUseCase } from "./adopt-pet.use-case";
 
 let petsRepository: InMemoryPetsRepository;

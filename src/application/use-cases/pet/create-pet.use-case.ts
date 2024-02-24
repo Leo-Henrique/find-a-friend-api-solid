@@ -4,11 +4,11 @@ import {
   PetSize,
   PetType,
 } from "@/application/entities/pet.entity";
+import { ResourceNotFoundError } from "@/application/errors";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { PetPhotosRepository } from "@/repositories/pet-photos.repository";
 import { PetRequirementsRepository } from "@/repositories/pet-requirements.repository";
 import { PetsRepository } from "@/repositories/pets.repository";
-import { ResourceNotFoundError } from "../../errors/resource-not-found.error";
 
 interface CreatePetUseCaseRequest {
   orgId: string;
@@ -43,7 +43,7 @@ export class CreatePetUseCase {
   }: CreatePetUseCaseRequest): Promise<CreatePetUseCaseResponse> {
     const org = await this.orgsRepository.findById(orgId);
 
-    if (!org) throw new ResourceNotFoundError("org");
+    if (!org) throw new ResourceNotFoundError("Org");
 
     const pet = await this.petsRepository.create({ orgId, ...rest });
 

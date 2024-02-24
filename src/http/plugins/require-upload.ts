@@ -14,8 +14,7 @@ import {
 import { extension } from "mime-types";
 import path, { extname } from "path";
 import prettyBytes from "pretty-bytes";
-import { HTTPError } from "../errors/HTTP-error";
-import { CustomMulterError } from "../errors/handlers/multer.HTTP-error";
+import { CustomMulterError, HTTPError } from "../errors/custom-HTTP-errors";
 
 interface MemoryStorage {
   storage?: "memory";

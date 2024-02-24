@@ -1,3 +1,4 @@
+import { ResourceNotFoundError } from "@/application/errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { InMemoryPetPhotosRepository } from "@/repositories/in-memory/in-memory-pet-photos.repository";
 import { InMemoryPetRequirementsRepository } from "@/repositories/in-memory/in-memory-pet-requirements.repository";
@@ -5,7 +6,6 @@ import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.
 import { randomUUID } from "crypto";
 import { orgPasswordHashSpec, orgSpec, petUseCaseSpec } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
-import { ResourceNotFoundError } from "../../errors/resource-not-found.error";
 import { CreatePetUseCase } from "./create-pet.use-case";
 
 let orgsRepository: InMemoryOrgsRepository;

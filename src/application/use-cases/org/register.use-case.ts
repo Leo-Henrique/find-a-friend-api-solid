@@ -1,8 +1,8 @@
 import { Org } from "@/application/entities/org.entity";
+import { ResourceAlreadyExistsError } from "@/application/errors";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { serializeUser } from "@/utils/serialize-user";
 import { hash } from "bcryptjs";
-import { OrgAlreadyExistsError } from "../../errors/org-already-exists.error";
 
 interface RegisterUseCaseRequest {
   name: string;
@@ -31,7 +31,7 @@ export class RegisterUseCase {
   }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
     const orgWithSameEmail = await this.orgsRepository.findByEmail(email);
 
-    if (orgWithSameEmail) throw new OrgAlreadyExistsError();
+    if (orgWithSameEmail) throw new ResourceAlreadyExistsError("Organization");
 
     const org = await this.orgsRepository.create({
       email,

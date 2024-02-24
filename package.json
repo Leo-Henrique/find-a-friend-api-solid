@@ -26,7 +26,8 @@
     "fastify-multer": "2.0.3",
     "mime-types": "2.1.35",
     "pretty-bytes": "6.1.1",
-    "zod": "3.22.4"
+    "zod": "3.22.4",
+    "zod-validation-error": "3.0.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "2.4.6",
