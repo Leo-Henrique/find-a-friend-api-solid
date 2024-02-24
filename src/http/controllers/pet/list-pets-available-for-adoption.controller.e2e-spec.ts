@@ -2,7 +2,7 @@ import { app } from "@/app";
 import { prisma } from "@/lib/prisma";
 import request from "supertest";
 import { createAndAuthenticateOrg } from "test/e2e/create-and-authenticate-org";
-import { orgSpec, petSpec } from "test/entities";
+import { orgTest, petTest } from "test/entities";
 import { describe, expect, it } from "vitest";
 
 describe("List pets available for adoption (E2E)", () => {
@@ -13,13 +13,13 @@ describe("List pets available for adoption (E2E)", () => {
 
     await prisma.pet.createMany({
       data: Array.from({ length: petsCount }).map(() => {
-        return { orgId: org.id, ...petSpec };
+        return { orgId: org.id, ...petTest };
       }),
     });
 
     const response = await request(app.server)
       .get("/pets/available")
-      .query({ city: orgSpec.city })
+      .query({ city: orgTest.city })
       .send();
 
     expect(response.statusCode).toEqual(200);

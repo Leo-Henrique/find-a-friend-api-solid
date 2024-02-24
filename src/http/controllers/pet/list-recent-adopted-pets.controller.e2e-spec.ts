@@ -2,7 +2,7 @@ import { app } from "@/app";
 import { prisma } from "@/lib/prisma";
 import request from "supertest";
 import { createAndAuthenticateOrg } from "test/e2e/create-and-authenticate-org";
-import { petSpec } from "test/entities";
+import { petTest } from "test/entities";
 import { describe, expect, it } from "vitest";
 
 describe("List recent adopted pets (E2E)", () => {
@@ -13,7 +13,7 @@ describe("List recent adopted pets (E2E)", () => {
 
     await prisma.pet.createMany({
       data: Array.from({ length: limit + 1 }).map(() => {
-        return { orgId: org.id, ...petSpec, adopted: new Date() };
+        return { orgId: org.id, ...petTest, adopted: new Date() };
       }),
     });
 

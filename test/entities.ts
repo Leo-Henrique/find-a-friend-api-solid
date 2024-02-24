@@ -1,32 +1,33 @@
+import { faker } from "@faker-js/faker";
 import { hashSync } from "bcryptjs";
 
-export const orgSpec = {
-  name: "Org",
-  email: "org@example.com",
-  password: "123456",
-  tel: "14999999999",
-  cep: "12345678",
-  state: "State",
-  city: "City",
-  neighborhood: "Neighborhood",
-  street: "Street",
-  addressNumber: 123,
+export const orgTest = {
+  name: faker.company.name(),
+  email: faker.internet.email(),
+  password: faker.internet.password(),
+  tel: faker.string.numeric(11),
+  cep: faker.location.zipCode({ format: "00000000" }),
+  state: faker.location.state(),
+  city: faker.location.city(),
+  neighborhood: faker.location.streetAddress(false),
+  street: faker.location.street(),
+  addressNumber: faker.number.int(3),
 };
 
-export const orgPasswordHashSpec = hashSync(orgSpec.password, 6);
+export const orgPasswordHashTest = hashSync(orgTest.password, 6);
 
-export const petSpec = {
-  name: "Paçoca",
-  description: "Paçoca é um adorável cão Shih-tzu que adora uma companhia.",
-  age: 2,
+export const petTest = {
+  name: faker.person.firstName(),
+  description: faker.lorem.paragraph(),
+  age: faker.number.int({ min: 2, max: 15 }),
   type: "dog",
   size: "medium",
   independency: "very",
   energyLevel: 5,
 } as const;
 
-export const petUseCaseSpec = {
-  ...petSpec,
+export const petUseCaseTest = {
+  ...petTest,
   requirements: <[]>[],
   photos: <[]>[],
 } as const;

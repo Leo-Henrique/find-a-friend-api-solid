@@ -1,14 +1,14 @@
 import { InvalidCredentialsError } from "@/application/errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { randomUUID } from "crypto";
-import { orgPasswordHashSpec, orgSpec } from "test/entities";
+import { orgPasswordHashTest, orgTest } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { AuthenticateUseCase } from "./authenticate.use-case";
 
 let orgsRepository: InMemoryOrgsRepository;
 let sut: AuthenticateUseCase;
 
-const { email, password } = orgSpec;
+const { email, password } = orgTest;
 
 describe("Authenticate Use Case", () => {
   beforeEach(async () => {
@@ -16,15 +16,15 @@ describe("Authenticate Use Case", () => {
     sut = new AuthenticateUseCase(orgsRepository);
 
     await orgsRepository.create({
-      ...orgSpec,
-      passwordHash: orgPasswordHashSpec,
+      ...orgTest,
+      passwordHash: orgPasswordHashTest,
     });
   });
 
   it("should be able to authenticate as org", async () => {
     const { org: authenticatedOrg } = await sut.execute({ email, password });
     // eslint-disable-next-line
-    const { password: _, ...expectedData } = orgSpec;
+    const { password: _, ...expectedData } = orgTest;
 
     expect(authenticatedOrg).toEqual(expect.objectContaining(expectedData));
   });

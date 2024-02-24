@@ -1,7 +1,7 @@
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
 import { randomUUID } from "crypto";
-import { orgPasswordHashSpec, orgSpec, petUseCaseSpec } from "test/entities";
+import { orgPasswordHashTest, orgTest, petUseCaseTest } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { ListPetsAvailableForAdoptionUseCase } from "./list-pets-available-for-adoption.use-case";
 
@@ -22,8 +22,8 @@ describe("List pets available for adoption Use Case", () => {
     );
 
     const org = await orgsRepository.create({
-      ...orgSpec,
-      passwordHash: orgPasswordHashSpec,
+      ...orgTest,
+      passwordHash: orgPasswordHashTest,
       city,
     });
 
@@ -33,7 +33,7 @@ describe("List pets available for adoption Use Case", () => {
   it("should be able to list pets available for adoption", async () => {
     for (let i = 1; i <= 2; i++)
       await petsRepository.create({
-        ...petUseCaseSpec,
+        ...petUseCaseTest,
         orgId,
         adopted: new Date(),
       });
@@ -41,7 +41,7 @@ describe("List pets available for adoption Use Case", () => {
     const petsAvailableForAdoptionCount = 3;
 
     for (let i = 1; i <= petsAvailableForAdoptionCount; i++)
-      await petsRepository.create({ ...petUseCaseSpec, orgId });
+      await petsRepository.create({ ...petUseCaseTest, orgId });
 
     const { pets, totalInCity } = await sut.execute({
       city,
@@ -55,12 +55,12 @@ describe("List pets available for adoption Use Case", () => {
 
   it("should not be able to list pets available for adoption in different cities", async () => {
     for (let i = 1; i <= 2; i++)
-      await petsRepository.create({ ...petUseCaseSpec, orgId: randomUUID() });
+      await petsRepository.create({ ...petUseCaseTest, orgId: randomUUID() });
 
     const petsInSameCity = 3;
 
     for (let i = 1; i <= petsInSameCity; i++)
-      await petsRepository.create({ ...petUseCaseSpec, orgId });
+      await petsRepository.create({ ...petUseCaseTest, orgId });
 
     const { pets } = await sut.execute({ city, items: 10, page: 1 });
 
@@ -85,7 +85,7 @@ describe("List pets available for adoption Use Case", () => {
       const age = { age: 0 };
 
       await petsRepository.create({
-        ...petUseCaseSpec,
+        ...petUseCaseTest,
         orgId,
         ...(isAge ? age : filter),
       });
@@ -107,7 +107,7 @@ describe("List pets available for adoption Use Case", () => {
     const itemsInLastPage = 2;
 
     for (let i = 1; i <= items + itemsInLastPage; i++)
-      await petsRepository.create({ ...petUseCaseSpec, orgId });
+      await petsRepository.create({ ...petUseCaseTest, orgId });
 
     const { pets, totalInCity } = await sut.execute({ city, items, page: 2 });
 

@@ -2,7 +2,7 @@ import { app } from "@/app";
 import { join } from "path";
 import request from "supertest";
 import { createAndAuthenticateOrg } from "test/e2e/create-and-authenticate-org";
-import { petSpec } from "test/entities";
+import { petTest } from "test/entities";
 import { describe, expect, it } from "vitest";
 
 describe("Create pet (E2E)", () => {
@@ -13,7 +13,7 @@ describe("Create pet (E2E)", () => {
     const response = await request(app.server)
       .post("/pets")
       .set("Authorization", authorization)
-      .field(petSpec)
+      .field(petTest)
       .attach("photos", join(tmpFolderPath, "uploads/pacoca.jpg"));
 
     expect(response.statusCode).toEqual(201);

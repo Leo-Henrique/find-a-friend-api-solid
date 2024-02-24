@@ -1,7 +1,7 @@
 import { ResourceNotFoundError, UnauthorizedError } from "@/application/errors";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
 import { randomUUID } from "crypto";
-import { petUseCaseSpec } from "test/entities";
+import { petUseCaseTest } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { AdoptPetUseCase } from "./adopt-pet.use-case";
 
@@ -20,7 +20,7 @@ describe("Adopt Pet Use Case", () => {
 
     const pet = await petsRepository.create({
       orgId: randomUUID(),
-      ...petUseCaseSpec,
+      ...petUseCaseTest,
     });
 
     params.orgId = pet.orgId;

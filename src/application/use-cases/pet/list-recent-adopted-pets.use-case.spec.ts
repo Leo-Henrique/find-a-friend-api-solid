@@ -1,6 +1,6 @@
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
 import { randomUUID } from "crypto";
-import { petUseCaseSpec } from "test/entities";
+import { petUseCaseTest } from "test/entities";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ListRecentAdoptedPetsUseCase } from "./list-recent-adopted-pets.use-case";
 
@@ -8,7 +8,7 @@ let petsRepository: InMemoryPetsRepository;
 let sut: ListRecentAdoptedPetsUseCase;
 
 const pet = {
-  ...petUseCaseSpec,
+  ...petUseCaseTest,
   orgId: randomUUID(),
 };
 

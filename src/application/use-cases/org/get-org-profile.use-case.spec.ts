@@ -1,7 +1,7 @@
 import { ResourceNotFoundError } from "@/application/errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { randomUUID } from "crypto";
-import { orgPasswordHashSpec, orgSpec } from "test/entities";
+import { orgPasswordHashTest, orgTest } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { GetOrgProfileUseCase } from "./get-org-profile.use-case";
 
@@ -16,8 +16,8 @@ describe("Get org profile Use Case", () => {
     sut = new GetOrgProfileUseCase(orgsRepository);
 
     const org = await orgsRepository.create({
-      ...orgSpec,
-      passwordHash: orgPasswordHashSpec,
+      ...orgTest,
+      passwordHash: orgPasswordHashTest,
     });
 
     orgId = org.id;

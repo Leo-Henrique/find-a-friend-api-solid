@@ -2,7 +2,7 @@ import { ResourceNotFoundError } from "@/application/errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
 import { randomUUID } from "crypto";
-import { orgPasswordHashSpec, orgSpec, petUseCaseSpec } from "test/entities";
+import { orgPasswordHashTest, orgTest, petUseCaseTest } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { GetPetProfileUseCase } from "./get-pet-profile.use-case";
 
@@ -20,12 +20,12 @@ describe("Get pet profile Use Case", () => {
     sut = new GetPetProfileUseCase(orgsRepository, petsRepository);
 
     const org = await orgsRepository.create({
-      ...orgSpec,
-      passwordHash: orgPasswordHashSpec,
+      ...orgTest,
+      passwordHash: orgPasswordHashTest,
     });
 
     const createdPet = await petsRepository.create({
-      ...petUseCaseSpec,
+      ...petUseCaseTest,
       orgId: org.id,
     });
 
@@ -48,7 +48,7 @@ describe("Get pet profile Use Case", () => {
 
   it("should not be able to get pet profile if the responsible org does not exist", async () => {
     const createdPet = await petsRepository.create({
-      ...petUseCaseSpec,
+      ...petUseCaseTest,
       orgId: randomUUID(),
     });
 

@@ -4,7 +4,7 @@ import { InMemoryPetPhotosRepository } from "@/repositories/in-memory/in-memory-
 import { InMemoryPetRequirementsRepository } from "@/repositories/in-memory/in-memory-pet-requirements.repository";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
 import { randomUUID } from "crypto";
-import { orgPasswordHashSpec, orgSpec, petUseCaseSpec } from "test/entities";
+import { orgPasswordHashTest, orgTest, petUseCaseTest } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { CreatePetUseCase } from "./create-pet.use-case";
 
@@ -31,8 +31,8 @@ describe("Create Pet Use Case", () => {
     );
 
     const org = await orgsRepository.create({
-      ...orgSpec,
-      passwordHash: orgPasswordHashSpec,
+      ...orgTest,
+      passwordHash: orgPasswordHashTest,
     });
 
     orgId = org.id;
@@ -40,7 +40,7 @@ describe("Create Pet Use Case", () => {
 
   it("should be able to register a pet as an org", async () => {
     const { pet: registeredPet } = await sut.execute({
-      ...petUseCaseSpec,
+      ...petUseCaseTest,
       orgId,
     });
 
@@ -48,7 +48,7 @@ describe("Create Pet Use Case", () => {
   });
 
   it("should not be able to register a pet with a non-existent org", async () => {
-    const createPet = sut.execute({ ...petUseCaseSpec, orgId: randomUUID() });
+    const createPet = sut.execute({ ...petUseCaseTest, orgId: randomUUID() });
 
     await expect(createPet).rejects.toBeInstanceOf(ResourceNotFoundError);
   });
@@ -64,7 +64,7 @@ describe("Create Pet Use Case", () => {
     ];
 
     const { pet: registeredPet } = await sut.execute({
-      ...petUseCaseSpec,
+      ...petUseCaseTest,
       orgId,
       requirements,
     });
@@ -92,7 +92,7 @@ describe("Create Pet Use Case", () => {
     ];
 
     const { pet: registeredPet } = await sut.execute({
-      ...petUseCaseSpec,
+      ...petUseCaseTest,
       orgId,
       photos,
     });

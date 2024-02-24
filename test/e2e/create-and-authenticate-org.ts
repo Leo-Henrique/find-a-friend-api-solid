@@ -2,17 +2,17 @@ import { Org } from "@/application/entities/org.entity";
 import { prisma } from "@/lib/prisma";
 import { FastifyInstance } from "fastify";
 import request from "supertest";
-import { orgPasswordHashSpec, orgSpec } from "test/entities";
+import { orgPasswordHashTest, orgTest } from "test/entities";
 
 export async function createAndAuthenticateOrg(app: FastifyInstance) {
   // eslint-disable-next-line
-  const { password, ...org } = orgSpec;
+  const { password, ...org } = orgTest;
 
   await prisma.org.create({
-    data: { ...org, passwordHash: orgPasswordHashSpec },
+    data: { ...org, passwordHash: orgPasswordHashTest },
   });
 
-  const response = await request(app.server).post("/sessions").send(orgSpec);
+  const response = await request(app.server).post("/sessions").send(orgTest);
 
   const body = response.body as {
     org: Omit<Org, "passwordHash">;

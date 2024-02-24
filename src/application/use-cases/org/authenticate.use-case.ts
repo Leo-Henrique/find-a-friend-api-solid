@@ -1,7 +1,7 @@
+import { serializeUser } from "@/application/adapters/serialize-user";
 import { Org } from "@/application/entities/org.entity";
 import { InvalidCredentialsError } from "@/application/errors";
 import { OrgsRepository } from "@/repositories/orgs.repository";
-import { serializeUser } from "@/utils/serialize-user";
 import { compare } from "bcryptjs";
 
 interface AuthenticateUseCaseRequest {
