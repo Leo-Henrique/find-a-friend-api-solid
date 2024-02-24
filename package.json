@@ -6,6 +6,7 @@
     "prepare": "husky install",
     "postinstall": "prisma generate",
     "start:dev": "tsx watch ./src/server.ts",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts --max-warnings 0 --fix --cache",
     "format": "prettier . --write --cache",
     "test": "vitest run",
