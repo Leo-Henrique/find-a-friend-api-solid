@@ -1,4 +1,7 @@
-import { ResourceNotFoundError, UnauthorizedError } from "@/application/errors";
+import {
+  ResourceNotFoundError,
+  UnauthorizedError,
+} from "@/application/errors/use-case-errors";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
 import { randomUUID } from "crypto";
 import { petUseCaseTest } from "test/entities";

@@ -1,4 +1,4 @@
-import { ResourceNotFoundError } from "@/application/errors";
+import { ResourceNotFoundError } from "@/application/errors/use-case-errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { InMemoryPetPhotosRepository } from "@/repositories/in-memory/in-memory-pet-photos.repository";
 import { InMemoryPetRequirementsRepository } from "@/repositories/in-memory/in-memory-pet-requirements.repository";

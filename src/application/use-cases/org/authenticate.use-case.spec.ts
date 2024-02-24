@@ -1,4 +1,4 @@
-import { InvalidCredentialsError } from "@/application/errors";
+import { InvalidCredentialsError } from "@/application/errors/use-case-errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { randomUUID } from "crypto";
 import { orgPasswordHashTest, orgTest } from "test/entities";

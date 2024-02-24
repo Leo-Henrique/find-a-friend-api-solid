@@ -1,4 +1,4 @@
-import { ResourceNotFoundError } from "@/application/errors";
+import { ResourceNotFoundError } from "@/application/errors/use-case-errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { randomUUID } from "crypto";
 import { orgPasswordHashTest, orgTest } from "test/entities";

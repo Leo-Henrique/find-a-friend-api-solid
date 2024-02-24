@@ -4,7 +4,7 @@ import {
   PetSize,
   PetType,
 } from "@/application/entities/pet.entity";
-import { ResourceNotFoundError } from "@/application/errors";
+import { ResourceNotFoundError } from "@/application/errors/use-case-errors";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { PetPhotosRepository } from "@/repositories/pet-photos.repository";
 import { PetRequirementsRepository } from "@/repositories/pet-requirements.repository";

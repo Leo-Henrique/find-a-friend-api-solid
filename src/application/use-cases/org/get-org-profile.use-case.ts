@@ -1,6 +1,6 @@
 import { serializeUser } from "@/application/adapters/serialize-user";
 import { Org } from "@/application/entities/org.entity";
-import { ResourceNotFoundError } from "@/application/errors";
+import { ResourceNotFoundError } from "@/application/errors/use-case-errors";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 
 interface GetOrgProfileUseCaseRequest {

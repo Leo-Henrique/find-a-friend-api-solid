@@ -1,6 +1,6 @@
 import { serializeUser } from "@/application/adapters/serialize-user";
 import { Org } from "@/application/entities/org.entity";
-import { InvalidCredentialsError } from "@/application/errors";
+import { InvalidCredentialsError } from "@/application/errors/use-case-errors";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { compare } from "bcryptjs";
 

@@ -1,7 +1,7 @@
 import { serializeUser } from "@/application/adapters/serialize-user";
 import { Org } from "@/application/entities/org.entity";
 import { Pet } from "@/application/entities/pet.entity";
-import { ResourceNotFoundError } from "@/application/errors";
+import { ResourceNotFoundError } from "@/application/errors/use-case-errors";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { PetsRepository } from "@/repositories/pets.repository";
 

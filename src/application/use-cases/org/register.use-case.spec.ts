@@ -1,4 +1,4 @@
-import { ResourceAlreadyExistsError } from "@/application/errors";
+import { ResourceAlreadyExistsError } from "@/application/errors/use-case-errors";
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { compare } from "bcryptjs";
 import { orgTest } from "test/entities";

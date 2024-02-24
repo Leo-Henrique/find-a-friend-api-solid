@@ -1,5 +1,8 @@
 import { Pet } from "@/application/entities/pet.entity";
-import { ResourceNotFoundError, UnauthorizedError } from "@/application/errors";
+import {
+  ResourceNotFoundError,
+  UnauthorizedError,
+} from "@/application/errors/use-case-errors";
 import { PetsRepository } from "@/repositories/pets.repository";
 
 interface AdoptPetUseCaseRequest {

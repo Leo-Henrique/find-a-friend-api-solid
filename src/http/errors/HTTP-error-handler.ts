@@ -1,5 +1,5 @@
-import { UnauthorizedError } from "@/application/errors";
 import { BaseError, UseCaseBaseError } from "@/application/errors/base-error";
+import { UnauthorizedError } from "@/application/errors/use-case-errors";
 import { env } from "@/config";
 import { FastifyError, FastifyReply } from "fastify";
 import { MulterError } from "fastify-multer";
