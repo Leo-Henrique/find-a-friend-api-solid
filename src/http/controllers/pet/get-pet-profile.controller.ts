@@ -1,4 +1,4 @@
-import { makeGetPetProfileUseCase } from "@/factories/pet.factory";
+import { makeGetPetProfileUseCase } from "@/application/factories/pet.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 

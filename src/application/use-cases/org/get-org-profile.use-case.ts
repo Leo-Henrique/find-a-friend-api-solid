@@ -1,7 +1,7 @@
-import { Org } from "@/entities/org.entity";
+import { Org } from "@/application/entities/org.entity";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { serializeUser } from "@/utils/serialize-user";
-import { ResourceNotFoundError } from "../errors/resource-not-found.error";
+import { ResourceNotFoundError } from "../../errors/resource-not-found.error";
 
 interface GetOrgProfileUseCaseRequest {
   orgId: string;

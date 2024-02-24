@@ -1,4 +1,4 @@
-import { UseCaseError } from "@/use-cases/errors/use-case.error";
+import { UseCaseError } from "@/application/errors/use-case.error";
 import { FastifyError, FastifyReply } from "fastify";
 import { readdir } from "fs/promises";
 import { join } from "path";

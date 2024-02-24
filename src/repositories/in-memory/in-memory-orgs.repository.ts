@@ -1,4 +1,4 @@
-import { CreateOrg, Org } from "@/entities/org.entity";
+import { CreateOrg, Org } from "@/application/entities/org.entity";
 import { randomUUID } from "crypto";
 import { OrgsRepository } from "../orgs.repository";
 

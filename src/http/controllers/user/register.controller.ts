@@ -1,4 +1,4 @@
-import { makeRegisterUseCase } from "@/factories/org.factory";
+import { makeRegisterUseCase } from "@/application/factories/org.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 

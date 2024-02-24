@@ -1,4 +1,4 @@
-import { Pet } from "@/entities/pet.entity";
+import { Pet } from "@/application/entities/pet.entity";
 import { PetsRepository } from "@/repositories/pets.repository";
 
 interface ListRecentAdoptedPetsUseCaseRequest {

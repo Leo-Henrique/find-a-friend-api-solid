@@ -2,7 +2,7 @@ import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.
 import { randomUUID } from "crypto";
 import { orgPasswordHashSpec, orgSpec } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
-import { ResourceNotFoundError } from "../errors/resource-not-found.error";
+import { ResourceNotFoundError } from "../../errors/resource-not-found.error";
 import { GetOrgProfileUseCase } from "./get-org-profile.use-case";
 
 let orgsRepository: InMemoryOrgsRepository;

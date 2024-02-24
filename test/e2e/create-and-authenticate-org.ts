@@ -1,4 +1,4 @@
-import { Org } from "@/entities/org.entity";
+import { Org } from "@/application/entities/org.entity";
 import { prisma } from "@/lib/prisma";
 import { FastifyInstance } from "fastify";
 import request from "supertest";

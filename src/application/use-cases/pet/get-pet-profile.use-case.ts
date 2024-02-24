@@ -1,9 +1,9 @@
-import { Org } from "@/entities/org.entity";
-import { Pet } from "@/entities/pet.entity";
+import { Org } from "@/application/entities/org.entity";
+import { Pet } from "@/application/entities/pet.entity";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { PetsRepository } from "@/repositories/pets.repository";
 import { serializeUser } from "@/utils/serialize-user";
-import { ResourceNotFoundError } from "../errors/resource-not-found.error";
+import { ResourceNotFoundError } from "../../errors/resource-not-found.error";
 
 interface GetPetProfileUseCaseRequest {
   petId: string;

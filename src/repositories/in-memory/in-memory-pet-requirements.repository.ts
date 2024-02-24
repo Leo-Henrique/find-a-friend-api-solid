@@ -1,7 +1,7 @@
 import {
   CreatePetRequirement,
   PetRequirement,
-} from "@/entities/pet-requirement.entity";
+} from "@/application/entities/pet-requirement.entity";
 import { randomUUID } from "crypto";
 import { PetRequirementsRepository } from "../pet-requirements.repository";
 

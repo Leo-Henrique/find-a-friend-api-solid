@@ -1,4 +1,4 @@
-import { CreatePet, UpdatePet } from "@/entities/pet.entity";
+import { CreatePet, UpdatePet } from "@/application/entities/pet.entity";
 import { prisma } from "@/lib/prisma";
 import {
   FindManyAvailableForAdoptionParams,

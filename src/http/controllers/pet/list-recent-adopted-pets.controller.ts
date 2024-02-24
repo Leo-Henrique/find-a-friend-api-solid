@@ -1,4 +1,4 @@
-import { makeListRecentAdoptedPetsUseCase } from "@/factories/pet.factory";
+import { makeListRecentAdoptedPetsUseCase } from "@/application/factories/pet.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 

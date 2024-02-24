@@ -1,4 +1,4 @@
-import { makeListPetsAvailableForAdoptionUseCase } from "@/factories/pet.factory";
+import { makeListPetsAvailableForAdoptionUseCase } from "@/application/factories/pet.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 import { createPetBodySchema } from "./create-pet.controller";

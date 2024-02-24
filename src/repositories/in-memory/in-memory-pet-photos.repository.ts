@@ -1,4 +1,7 @@
-import { CreatePetPhoto, PetPhoto } from "@/entities/pet-photo.entity";
+import {
+  CreatePetPhoto,
+  PetPhoto,
+} from "@/application/entities/pet-photo.entity";
 import { randomUUID } from "crypto";
 import { PetPhotosRepository } from "../pet-photos.repository";
 

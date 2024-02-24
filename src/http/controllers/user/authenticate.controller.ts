@@ -1,4 +1,4 @@
-import { makeAuthenticateUseCase } from "@/factories/org.factory";
+import { makeAuthenticateUseCase } from "@/application/factories/org.factory";
 import { encodeJWT } from "@/http/plugins/require-JWT";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
