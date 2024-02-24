@@ -1,7 +1,7 @@
 import { Pet } from "@/entities/pet.entity";
 import { PetsRepository } from "@/repositories/pets.repository";
-import { ResourceNotFoundError } from "./errors/resource-not-found.error";
-import { UnauthorizedError } from "./errors/unauthorized.error";
+import { ResourceNotFoundError } from "../errors/resource-not-found.error";
+import { UnauthorizedError } from "../errors/unauthorized.error";
 
 interface AdoptPetUseCaseRequest {
   orgId: string;

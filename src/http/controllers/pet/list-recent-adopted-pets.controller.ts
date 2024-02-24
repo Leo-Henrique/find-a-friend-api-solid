@@ -1,4 +1,4 @@
-import { listRecentAdoptedPetsUseCaseFactory } from "@/use-cases/factories/list-recent-adopted-pets-use-case.factory";
+import { makeListRecentAdoptedPetsUseCase } from "@/factories/pet.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
@@ -12,7 +12,7 @@ export async function listRecentAdoptedPetsController(
 ) {
   const query = listRecentAdoptedPetsQuerySchema.parse(req.query);
 
-  const listRecentAdoptedPets = listRecentAdoptedPetsUseCaseFactory();
+  const listRecentAdoptedPets = makeListRecentAdoptedPetsUseCase();
 
   const pets = await listRecentAdoptedPets.execute(query);
 

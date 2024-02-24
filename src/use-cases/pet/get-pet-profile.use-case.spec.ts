@@ -7,7 +7,7 @@ import {
 } from "@/utils/test/entities";
 import { randomUUID } from "crypto";
 import { beforeEach, describe, expect, it } from "vitest";
-import { ResourceNotFoundError } from "./errors/resource-not-found.error";
+import { ResourceNotFoundError } from "../errors/resource-not-found.error";
 import { GetPetProfileUseCase } from "./get-pet-profile.use-case";
 
 let orgsRepository: InMemoryOrgsRepository;

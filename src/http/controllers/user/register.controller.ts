@@ -1,4 +1,4 @@
-import { registerUseCaseFactory } from "@/use-cases/factories/register-use-case.factory";
+import { makeRegisterUseCase } from "@/factories/org.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
@@ -21,7 +21,7 @@ export async function registerController(
 ) {
   const body = registerBodySchema.parse(req.body);
 
-  const registerUseCase = registerUseCaseFactory();
+  const registerUseCase = makeRegisterUseCase();
 
   await registerUseCase.execute(body);
 

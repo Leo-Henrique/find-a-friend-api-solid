@@ -3,7 +3,7 @@ import { OrgsRepository } from "@/repositories/orgs.repository";
 import { PetPhotosRepository } from "@/repositories/pet-photos.repository";
 import { PetRequirementsRepository } from "@/repositories/pet-requirements.repository";
 import { PetsRepository } from "@/repositories/pets.repository";
-import { ResourceNotFoundError } from "./errors/resource-not-found.error";
+import { ResourceNotFoundError } from "../errors/resource-not-found.error";
 
 interface CreatePetUseCaseRequest {
   orgId: string;

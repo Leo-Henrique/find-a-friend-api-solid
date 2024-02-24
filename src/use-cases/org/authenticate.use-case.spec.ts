@@ -2,8 +2,8 @@ import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.
 import { orgPasswordHashSpec, orgSpec } from "@/utils/test/entities";
 import { randomUUID } from "crypto";
 import { beforeEach, describe, expect, it } from "vitest";
+import { InvalidCredentialsError } from "../errors/invalid-credentials.error";
 import { AuthenticateUseCase } from "./authenticate.use-case";
-import { InvalidCredentialsError } from "./errors/invalid-credentials.error";
 
 let orgsRepository: InMemoryOrgsRepository;
 let sut: AuthenticateUseCase;

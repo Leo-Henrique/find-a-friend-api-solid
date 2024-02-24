@@ -1,4 +1,4 @@
-import { createPetUseCaseFactory } from "@/use-cases/factories/create-pet-use-case.factory";
+import { makeCreatePetUseCase } from "@/factories/pet.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
@@ -20,7 +20,7 @@ export async function createPetController(
   const orgId = req.user.id;
   const body = createPetBodySchema.parse(req.body);
 
-  const createPetUseCase = createPetUseCaseFactory();
+  const createPetUseCase = makeCreatePetUseCase();
 
   await createPetUseCase.execute({
     orgId,

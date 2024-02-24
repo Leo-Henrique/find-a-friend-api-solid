@@ -1,4 +1,4 @@
-import { getOrgProfileUseCaseFactory } from "@/use-cases/factories/get-org-profile-use-case.factory";
+import { makeGetOrgProfileUseCase } from "@/factories/org.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 
 export async function profileController(
@@ -7,7 +7,7 @@ export async function profileController(
 ) {
   const orgId = req.user.id;
 
-  const getOrgProfileUseCase = getOrgProfileUseCaseFactory();
+  const getOrgProfileUseCase = makeGetOrgProfileUseCase();
   const { org } = await getOrgProfileUseCase.execute({ orgId });
 
   res.status(200).send({ org });

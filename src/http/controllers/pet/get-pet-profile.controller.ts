@@ -1,4 +1,4 @@
-import { getPetProfileUseCaseFactory } from "@/use-cases/factories/get-pet-profile-use-case.factory";
+import { makeGetPetProfileUseCase } from "@/factories/pet.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
@@ -12,7 +12,7 @@ export async function getPetProfileController(
 ) {
   const { petId } = getPetProfileParamsSchema.parse(req.params);
 
-  const getPetProfileUseCase = getPetProfileUseCaseFactory();
+  const getPetProfileUseCase = makeGetPetProfileUseCase();
   const pet = await getPetProfileUseCase.execute({ petId });
 
   res.status(200).send(pet);

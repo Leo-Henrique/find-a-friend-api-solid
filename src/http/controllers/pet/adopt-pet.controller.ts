@@ -1,4 +1,4 @@
-import { adoptPetUseCaseFactory } from "@/use-cases/factories/adopt-pet-use-case.factory";
+import { makeAdoptPetUseCase } from "@/factories/pet.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
@@ -13,7 +13,7 @@ export async function adoptPetController(
   const orgId = req.user.id;
   const { petId } = adoptPetParamsSchema.parse(req.params);
 
-  const adoptPetUseCase = adoptPetUseCaseFactory();
+  const adoptPetUseCase = makeAdoptPetUseCase();
 
   await adoptPetUseCase.execute({ orgId, petId });
 

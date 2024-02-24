@@ -2,9 +2,9 @@ import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.
 import { petUseCaseSpec } from "@/utils/test/entities";
 import { randomUUID } from "crypto";
 import { beforeEach, describe, expect, it } from "vitest";
+import { ResourceNotFoundError } from "../errors/resource-not-found.error";
+import { UnauthorizedError } from "../errors/unauthorized.error";
 import { AdoptPetUseCase } from "./adopt-pet.use-case";
-import { ResourceNotFoundError } from "./errors/resource-not-found.error";
-import { UnauthorizedError } from "./errors/unauthorized.error";
 
 let petsRepository: InMemoryPetsRepository;
 let sut: AdoptPetUseCase;

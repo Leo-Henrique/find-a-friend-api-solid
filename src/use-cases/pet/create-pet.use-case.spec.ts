@@ -9,8 +9,8 @@ import {
 } from "@/utils/test/entities";
 import { randomUUID } from "crypto";
 import { beforeEach, describe, expect, it } from "vitest";
+import { ResourceNotFoundError } from "../errors/resource-not-found.error";
 import { CreatePetUseCase } from "./create-pet.use-case";
-import { ResourceNotFoundError } from "./errors/resource-not-found.error";
 
 let orgsRepository: InMemoryOrgsRepository;
 let petsRepository: InMemoryPetsRepository;

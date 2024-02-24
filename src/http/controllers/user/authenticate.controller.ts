@@ -1,5 +1,5 @@
+import { makeAuthenticateUseCase } from "@/factories/org.factory";
 import { encodeJWT } from "@/http/plugins/require-JWT";
-import { authenticateUseCaseFactory } from "@/use-cases/factories/authenticate-use-case.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
@@ -14,7 +14,7 @@ export async function authenticateController(
 ) {
   const body = authenticateBodySchema.parse(req.body);
 
-  const authenticateUseCase = authenticateUseCaseFactory();
+  const authenticateUseCase = makeAuthenticateUseCase();
   const { org } = await authenticateUseCase.execute(body);
 
   const { accessToken } = await encodeJWT(org.id, res);

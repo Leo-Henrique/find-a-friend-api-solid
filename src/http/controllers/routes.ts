@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
-import { petRoutes } from "./pets/routes";
-import { userRoutes } from "./users/routes";
+import { petRoutes } from "./pet/pet.routes";
+import { userRoutes } from "./user/user.routes";
 
 export async function appRoutes(app: FastifyInstance) {
   app.register(userRoutes);

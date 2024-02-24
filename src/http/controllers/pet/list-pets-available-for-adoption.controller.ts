@@ -1,4 +1,4 @@
-import { listPetsAvailableForAdoptionUseCaseFactory } from "@/use-cases/factories/list-pets-available-for-adoption-use-case.factory";
+import { makeListPetsAvailableForAdoptionUseCase } from "@/factories/pet.factory";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 import { createPetBodySchema } from "./create-pet.controller";
@@ -21,7 +21,7 @@ export async function listPetsAvailableForAdoptionController(
     listPetsAvailableForAdoptionQuerySchema.parse(req.query);
 
   const listPetsAvailableForAdoption =
-    listPetsAvailableForAdoptionUseCaseFactory();
+    makeListPetsAvailableForAdoptionUseCase();
 
   const pets = await listPetsAvailableForAdoption.execute({
     city,

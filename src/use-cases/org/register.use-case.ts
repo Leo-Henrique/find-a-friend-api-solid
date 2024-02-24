@@ -2,7 +2,7 @@ import { Org } from "@/entities/org.entity";
 import { OrgsRepository } from "@/repositories/orgs.repository";
 import { serializeUser } from "@/utils/serialize-user";
 import { hash } from "bcryptjs";
-import { OrgAlreadyExistsError } from "./errors/org-already-exists.error";
+import { OrgAlreadyExistsError } from "../errors/org-already-exists.error";
 
 interface RegisterUseCaseRequest {
   name: string;
