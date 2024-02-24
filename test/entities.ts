@@ -4,14 +4,14 @@ import { hashSync } from "bcryptjs";
 export const orgTest = {
   name: faker.company.name(),
   email: faker.internet.email(),
-  password: faker.internet.password(),
+  password: faker.internet.password({ length: 6 }),
   tel: faker.string.numeric(11),
   cep: faker.location.zipCode({ format: "00000000" }),
   state: faker.location.state(),
   city: faker.location.city(),
   neighborhood: faker.location.streetAddress(false),
   street: faker.location.street(),
-  addressNumber: faker.number.int(3),
+  addressNumber: faker.number.int({ min: 1, max: 999 }),
 };
 
 export const orgPasswordHashTest = hashSync(orgTest.password, 6);
