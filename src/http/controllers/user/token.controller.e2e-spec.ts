@@ -1,7 +1,7 @@
 import { app } from "@/app";
 import { prisma } from "@/lib/prisma";
-import { orgPasswordHashSpec, orgSpec } from "@/utils/test/entities";
 import request from "supertest";
+import { orgPasswordHashSpec, orgSpec } from "test/entities";
 import { describe, expect, it } from "vitest";
 
 describe("Token (E2E)", () => {

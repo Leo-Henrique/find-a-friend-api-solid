@@ -1,8 +1,8 @@
 import { app } from "@/app";
-import { createAndAuthenticateOrg } from "@/http/test/create-and-authenticate-org";
 import { prisma } from "@/lib/prisma";
-import { petSpec } from "@/utils/test/entities";
 import request from "supertest";
+import { createAndAuthenticateOrg } from "test/e2e/create-and-authenticate-org";
+import { petSpec } from "test/entities";
 import { describe, expect, it } from "vitest";
 
 describe("List recent adopted pets (E2E)", () => {

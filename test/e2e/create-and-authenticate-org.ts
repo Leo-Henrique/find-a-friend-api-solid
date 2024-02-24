@@ -1,8 +1,8 @@
 import { Org } from "@/entities/org.entity";
 import { prisma } from "@/lib/prisma";
-import { orgPasswordHashSpec, orgSpec } from "@/utils/test/entities";
 import { FastifyInstance } from "fastify";
 import request from "supertest";
+import { orgPasswordHashSpec, orgSpec } from "test/entities";
 
 export async function createAndAuthenticateOrg(app: FastifyInstance) {
   // eslint-disable-next-line

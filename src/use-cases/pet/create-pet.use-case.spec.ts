@@ -2,12 +2,8 @@ import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.
 import { InMemoryPetPhotosRepository } from "@/repositories/in-memory/in-memory-pet-photos.repository";
 import { InMemoryPetRequirementsRepository } from "@/repositories/in-memory/in-memory-pet-requirements.repository";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
-import {
-  orgPasswordHashSpec,
-  orgSpec,
-  petUseCaseSpec,
-} from "@/utils/test/entities";
 import { randomUUID } from "crypto";
+import { orgPasswordHashSpec, orgSpec, petUseCaseSpec } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { ResourceNotFoundError } from "../errors/resource-not-found.error";
 import { CreatePetUseCase } from "./create-pet.use-case";

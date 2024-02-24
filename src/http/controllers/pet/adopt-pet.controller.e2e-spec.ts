@@ -1,9 +1,9 @@
 import { app } from "@/app";
-import { createAndAuthenticateOrg } from "@/http/test/create-and-authenticate-org";
 import { prisma } from "@/lib/prisma";
 import request from "supertest";
+import { createAndAuthenticateOrg } from "test/e2e/create-and-authenticate-org";
+import { petSpec } from "test/entities";
 import { describe, expect, it } from "vitest";
-import { petSpec } from "@/utils/test/entities";
 
 describe("Adopt pet (E2E)", () => {
   it("should be able to adopt pet", async () => {

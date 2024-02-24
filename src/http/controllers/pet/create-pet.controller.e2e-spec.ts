@@ -1,8 +1,8 @@
 import { app } from "@/app";
-import { createAndAuthenticateOrg } from "@/http/test/create-and-authenticate-org";
-import { petSpec } from "@/utils/test/entities";
 import { join } from "path";
 import request from "supertest";
+import { createAndAuthenticateOrg } from "test/e2e/create-and-authenticate-org";
+import { petSpec } from "test/entities";
 import { describe, expect, it } from "vitest";
 
 describe("Create pet (E2E)", () => {

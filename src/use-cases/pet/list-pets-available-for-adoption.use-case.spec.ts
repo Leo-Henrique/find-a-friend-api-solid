@@ -1,11 +1,7 @@
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
 import { InMemoryPetsRepository } from "@/repositories/in-memory/in-memory-pets.repository";
-import {
-  orgPasswordHashSpec,
-  orgSpec,
-  petUseCaseSpec,
-} from "@/utils/test/entities";
 import { randomUUID } from "crypto";
+import { orgPasswordHashSpec, orgSpec, petUseCaseSpec } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { ListPetsAvailableForAdoptionUseCase } from "./list-pets-available-for-adoption.use-case";
 

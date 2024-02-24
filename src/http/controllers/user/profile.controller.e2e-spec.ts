@@ -1,6 +1,6 @@
 import { app } from "@/app";
-import { createAndAuthenticateOrg } from "@/http/test/create-and-authenticate-org";
 import request from "supertest";
+import { createAndAuthenticateOrg } from "test/e2e/create-and-authenticate-org";
 import { describe, expect, it } from "vitest";
 
 describe("Authenticate (E2E)", () => {

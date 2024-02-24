@@ -1,6 +1,6 @@
 import { app } from "@/app";
-import { orgSpec } from "@/utils/test/entities";
 import request from "supertest";
+import { orgSpec } from "test/entities";
 import { describe, expect, it } from "vitest";
 
 describe("Authenticate (E2E)", () => {

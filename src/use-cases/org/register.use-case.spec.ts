@@ -1,6 +1,6 @@
 import { InMemoryOrgsRepository } from "@/repositories/in-memory/in-memory-orgs.repository";
-import { orgSpec } from "@/utils/test/entities";
 import { compare } from "bcryptjs";
+import { orgSpec } from "test/entities";
 import { beforeEach, describe, expect, it } from "vitest";
 import { OrgAlreadyExistsError } from "../errors/org-already-exists.error";
 import { RegisterUseCase } from "./register.use-case";
